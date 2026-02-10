@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MetaMask UI Precise Clone</title>
+    <style>
+        /* استيراد خط مشابه لخط MetaMask */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800&display=swap');
 
+        :root {
+            --bg-color: #fdf5f0;
+            --text-purple: #240d52;
+            --fox-orange: #e27625;
+            --fox-dark: #d35c16;
+            --fox-light: #f6851b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 430px; /* عرض آيفون برو ماكس */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 24px 0 24px;
+            position: relative;
+        }
+
+        /* الجزء العلوي: اللوجو */
+        .logo-wrapper {
+            text-align: center;
+        }
+
+        .meta-text {
+            color: var(--text-purple);
+            font-size: 72px;
+            font-weight: 800;
+            line-height: 0.85;
+            letter-spacing: -4px;
+            display: block;
+        }
+
+        .mask-text {
+            color: var(--text-purple);
+            font-size: 72px;
+            font-weight: 800;
+            line-height: 0.85;
+            letter-spacing: -4px;
+            display: block;
+        }
+
+        /* الجزء الأوسط: الأزرار */
+        .controls {
+            width: 100%;
+            margin-bottom: 120px;
+            z-index: 2;
+        }
+
+        .btn {
+            width: 100%;
+            height: 56px;
+            border-radius: 28px;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.1s ease, background-color 0.2s;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-new {
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .btn-existing {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* الجزء السفلي: الثعلب الهندسي */
+        .fox-footer {
+            position: absolute;
+            bottom: -20px;
+            width: 100%;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 1;
+        }
+
+        /* رسم الأذنين بشكل هندسي دقيق */
+        .ear-left {
+            width: 0;
+            height: 0;
+            border-left: 140px solid transparent;
+            border-bottom: 160px solid var(--fox-dark);
+            transform: rotate(-5deg) translateX(40px);
+        }
+
+        .ear-right {
+            width: 0;
+            height: 0;
+            border-right: 140px solid transparent;
+            border-bottom: 160px solid var(--fox-orange);
+            transform: rotate(5deg) translateX(-40px);
+        }
+
+        .ear-center {
+            position: absolute;
+            bottom: 0;
+            width: 60px;
+            height: 40px;
+            background: var(--fox-light);
+            clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+            margin-bottom: -5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="logo-wrapper">
+            <span class="meta-text">Meta</span>
+            <span class="mask-text">Mask</span>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-new">Créer un nouveau portefeuille</button>
+            <button class="btn btn-existing">J’ai déjà un portefeuille</button>
+        </div>
+
+        <div class="fox-footer">
+            <div class="ear-left"></div>
+            <div class="ear-center"></div>
+            <div class="ear-right"></div>
+        </div>
+    </div>
+
+</body>
+</html>
