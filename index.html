@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MetaMask High Quality</title>
+    <title>MetaMask Pro UI</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
@@ -11,46 +11,39 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
         }
 
         body, html {
             height: 100%;
             width: 100%;
-            background-color: #fdf5f0; /* لون احتياطي مطابق */
+            overflow: hidden; /* منع التمرير للحفاظ على شكل التطبيق */
+            background-color: #fdf5f0; /* لون احتياطي مطابق للخلفية */
             font-family: 'Inter', sans-serif;
-            overflow: hidden;
         }
 
-        /* حاوية الخلفية لضمان الوضوح */
-        .background-container {
+        /* حاوية الخلفية لضبط مقاس 1991x4090 */
+        .background-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background-image: url('https://i.ibb.co/ccbpfJRc/IMG-4227.jpg');
+            background-size: cover; /* تجعل الصورة تغطي كامل الشاشة مهما كان نوع الهاتف */
+            background-position: center top; /* التركيز على الجزء العلوي حيث يوجد الشعار */
+            background-repeat: no-repeat;
             z-index: -1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        .background-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* يحافظ على دقة الصورة الأصلية دون تمطيطها */
-            background-color: #fdf5f0;
-        }
-
-        /* حاوية الأزرار - التوسيط المطلق */
-        .ui-overlay {
-            position: relative;
+        /* حاوية الأزرار في وسط الشاشة */
+        .content-wrapper {
             height: 100vh;
-            width: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* توسيط الأزرار عمودياً */
-            align-items: center;    /* توسيط الأزرار أفقياً */
-            padding: 20px;
+            justify-content: center; /* توسيط عمودي */
+            align-items: center;    /* توسيط أفقي */
+            padding: 0 25px;
         }
 
         .button-group {
@@ -58,9 +51,9 @@
             max-width: 380px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            /* يمكنك تعديل هذه القيمة لرفع أو خفض مكان الأزرار بدقة */
-            margin-top: 180px; 
+            gap: 15px;
+            /* إزاحة بسيطة للأسفل لضمان عدم تغطية كلمة MetaMask */
+            margin-top: 120px; 
         }
 
         .btn {
@@ -71,16 +64,17 @@
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
+            transition: transform 0.1s ease, background-color 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.1s;
+            text-decoration: none;
         }
 
         .btn-white {
             background-color: #ffffff;
-            color: #000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            color: #000000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .btn-black {
@@ -91,18 +85,17 @@
         .btn:active {
             transform: scale(0.98);
         }
+
     </style>
 </head>
 <body>
 
-    <div class="background-container">
-        <img src="https://i.ibb.co/HfY8YZY5/CDDEF7-D4-B6-C6-4-B7-D-BCDE-C1-FCB3191133.jpg" alt="Background">
-    </div>
+    <div class="background-overlay"></div>
 
-    <div class="ui-overlay">
+    <div class="content-wrapper">
         <div class="button-group">
-            <button class="btn btn-white">Créer un nouveau portefeuille</button>
-            <button class="btn btn-black">J’ai déjà un portefeuille</button>
+            <a href="#" class="btn btn-white">Créer un nouveau portefeuille</a>
+            <a href="#" class="btn btn-black">J’ai déjà un portefeuille</a>
         </div>
     </div>
 
