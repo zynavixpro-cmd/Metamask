@@ -3,160 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MetaMask UI Precise Clone</title>
+    <title>MetaMask Ultra Precise</title>
     <style>
-        /* استيراد خط مشابه لخط MetaMask */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800&display=swap');
+        /* استيراد خط هندسي ثقيل يشبه شعار ميتا ماسك */
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@800&family=Inter:wght@600&display=swap');
 
         :root {
-            --bg-color: #fdf5f0;
-            --text-purple: #240d52;
-            --fox-orange: #e27625;
-            --fox-dark: #d35c16;
-            --fox-light: #f6851b;
+            /* الألوان المستخرجة بدقة من الصورة */
+            --bg-color: #fdf5f0;           /* لون الخلفية الكريمي */
+            --brand-purple: #241151;       /* بنفسجي MetaMask الداكن */
+            --btn-white: #ffffff;
+            --btn-black: #000000;
+            --fox-main: #e27625;           /* البرتقالي الأساسي */
+            --fox-dark: #763d16;           /* البني الداكن للأذن اليسرى */
+            --fox-light: #f6851b;          /* البرتقالي الفاتح للمنتصف */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
             background-color: var(--bg-color);
-            font-family: 'Inter', sans-serif;
             height: 100vh;
+            width: 100vw;
             display: flex;
             justify-content: center;
+            align-items: center;
             overflow: hidden;
+            font-family: 'Inter', sans-serif;
         }
 
-        .app-container {
+        .phone-screen {
             width: 100%;
-            max-width: 430px; /* عرض آيفون برو ماكس */
+            max-width: 414px; /* عرض شاشة قياسي */
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            padding: 100px 24px 0 24px;
             position: relative;
+            padding: 0 25px;
         }
 
-        /* الجزء العلوي: اللوجو */
-        .logo-wrapper {
+        /* تنسيق اللوجو - الدقة هنا في المسافة بين الحروف والأسطر */
+        .logo-container {
+            margin-top: 25%;
             text-align: center;
+            user-select: none;
         }
 
-        .meta-text {
-            color: var(--text-purple);
-            font-size: 72px;
+        .logo-text {
+            font-family: 'Lexend', sans-serif;
+            color: var(--brand-purple);
+            font-size: 78px;
+            line-height: 0.82; /* لجعل الكلمتين متقاربتين جداً */
+            letter-spacing: -3px;
             font-weight: 800;
-            line-height: 0.85;
-            letter-spacing: -4px;
-            display: block;
+            display: flex;
+            flex-direction: column;
         }
 
-        .mask-text {
-            color: var(--text-purple);
-            font-size: 72px;
-            font-weight: 800;
-            line-height: 0.85;
-            letter-spacing: -4px;
-            display: block;
-        }
-
-        /* الجزء الأوسط: الأزرار */
-        .controls {
+        /* تنسيق الأزرار */
+        .button-wrapper {
             width: 100%;
-            margin-bottom: 120px;
-            z-index: 2;
+            margin-top: auto;
+            margin-bottom: 140px; /* مساحة للأذنين في الأسفل */
+            z-index: 10;
         }
 
         .btn {
             width: 100%;
-            height: 56px;
-            border-radius: 28px;
+            height: 58px;
+            border-radius: 12px; /* زوايا منحنية بدقة */
             border: none;
             font-size: 16px;
-            font-weight: 700;
+            font-weight: 600;
             cursor: pointer;
-            transition: transform 0.1s ease, background-color 0.2s;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-white {
+            background-color: var(--btn-white);
+            color: #000;
+        }
+
+        .btn-black {
+            background-color: var(--btn-black);
+            color: #fff;
         }
 
         .btn:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
+            opacity: 0.9;
         }
 
-        .btn-new {
-            background-color: #ffffff;
-            color: #000000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-
-        .btn-existing {
-            background-color: #000000;
-            color: #ffffff;
-        }
-
-        /* الجزء السفلي: الثعلب الهندسي */
+        /* تصميم الثعلب في الأسفل (بدقة هندسية 100%) */
         .fox-footer {
             position: absolute;
-            bottom: -20px;
-            width: 100%;
-            height: 150px;
+            bottom: -5px;
+            width: 120%;
+            height: 140px;
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            z-index: 1;
+            pointer-events: none;
         }
 
-        /* رسم الأذنين بشكل هندسي دقيق */
         .ear-left {
             width: 0;
             height: 0;
-            border-left: 140px solid transparent;
-            border-bottom: 160px solid var(--fox-dark);
-            transform: rotate(-5deg) translateX(40px);
+            border-left: 150px solid transparent;
+            border-bottom: 180px solid var(--fox-dark);
+            transform: rotate(-12deg) translate(55px, 20px);
         }
 
         .ear-right {
             width: 0;
             height: 0;
-            border-right: 140px solid transparent;
-            border-bottom: 160px solid var(--fox-orange);
-            transform: rotate(5deg) translateX(-40px);
+            border-right: 150px solid transparent;
+            border-bottom: 180px solid var(--fox-main);
+            transform: rotate(12deg) translate(-55px, 20px);
         }
 
         .ear-center {
             position: absolute;
             bottom: 0;
-            width: 60px;
-            height: 40px;
-            background: var(--fox-light);
+            width: 80px;
+            height: 50px;
+            background: #f6851b;
             clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
-            margin-bottom: -5px;
+            z-index: 2;
         }
-
     </style>
 </head>
 <body>
 
-    <div class="app-container">
-        <div class="logo-wrapper">
-            <span class="meta-text">Meta</span>
-            <span class="mask-text">Mask</span>
+    <div class="phone-screen">
+        <div class="logo-container">
+            <div class="logo-text">
+                <span>Meta</span>
+                <span>Mask</span>
+            </div>
         </div>
 
-        <div class="controls">
-            <button class="btn btn-new">Créer un nouveau portefeuille</button>
-            <button class="btn btn-existing">J’ai déjà un portefeuille</button>
+        <div class="button-wrapper">
+            <button class="btn btn-white">Créer un nouveau portefeuille</button>
+            <button class="btn btn-black">J’ai déjà un portefeuille</button>
         </div>
 
         <div class="fox-footer">
