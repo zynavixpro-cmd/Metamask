@@ -2,121 +2,99 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MetaMask Precise Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMask Fix</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
-
-        * {
+        /* إعدادات الصفحة الأساسية لضمان عدم وجود هوامش */
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body, html {
             height: 100%;
-            width: 100%;
-            background-color: #fdf5f0; /* نفس لون الخلفية في الصورة */
-            font-family: 'Inter', sans-serif;
+            background-color: #fdf5f0; /* اللون الكريمي المطابق للصورة */
+            font-family: sans-serif;
             overflow: hidden;
         }
 
-        .screen-container {
+        /* حاوية الشاشة الرئيسية */
+        .main-wrapper {
             display: flex;
             flex-direction: column;
+            justify-content: space-between; /* توزيع العناصر: فوق، وسط، تحت */
             height: 100vh;
-            width: 100%;
-            max-width: 450px;
-            margin: 0 auto;
-            padding: 0 20px;
+            padding: 40px 20px;
+            box-sizing: border-box;
         }
 
-        /* 1. الشعار في الجزء العلوي */
-        .header-logo {
-            flex: 1; /* يأخذ مساحة مرنة */
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding-top: 80px;
+        /* 1. قسم الشعار في الأعلى */
+        .logo-top {
+            text-align: center;
+            margin-top: 20px;
         }
-
-        .header-logo img {
-            width: 220px;
+        .logo-top img {
+            width: 200px; /* حجم الشعار العلوي */
             height: auto;
         }
 
-        /* 2. رأس الثعلب في المنتصف السفلي (خلفية) */
-        .fox-visual {
-            flex: 1;
+        /* 2. قسم الثعلب في المنتصف */
+        .fox-center {
             display: flex;
             justify-content: center;
-            align-items: flex-end;
-            margin-bottom: 40px; /* مسافة قبل الأزرار */
+            align-items: center;
+            flex-grow: 1; /* يأخذ المساحة الوسطى بالكامل */
         }
-
-        /* رسم رأس الثعلب بالـ CSS ليتطابق مع الصورة */
         .fox-head {
-            position: relative;
-            width: 280px;
-            height: 100px;
-            display: flex;
-            justify-content: center;
+            width: 250px;
+            height: auto;
         }
 
-        .ear {
-            width: 0;
-            height: 0;
-            border-left: 70px solid transparent;
-            border-right: 70px solid transparent;
-            border-bottom: 90px solid #763d16;
-            position: absolute;
-        }
-
-        .ear.left { transform: rotate(-15deg) translateX(-60px); border-bottom-color: #763d16; }
-        .ear.right { transform: rotate(15deg) translateX(60px); border-bottom-color: #e27625; }
-
-        /* 3. منطقة الأزرار في الأسفل تماماً */
-        .footer-controls {
-            padding-bottom: 40px;
+        /* 3. قسم الأزرار في الأسفل */
+        .buttons-bottom {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 12px;
+            padding-bottom: 20px;
         }
 
         .btn {
             width: 100%;
-            height: 60px;
-            border-radius: 15px;
+            height: 55px;
+            border-radius: 12px;
             border: none;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: bold;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .btn-white { background-color: #ffffff; color: #000; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-        .btn-black { background-color: #000000; color: #ffffff; }
+        .btn-white {
+            background-color: #ffffff;
+            color: #000;
+        }
 
+        .btn-black {
+            background-color: #000000;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
 
-    <div class="screen-container">
-        <div class="header-logo">
+    <div class="main-wrapper">
+        <div class="logo-top">
             <img src="https://i.ibb.co/HfY8YZY5/CDDEF7-D4-B6-C6-4-B7-D-BCDE-C1-FCB3191133.jpg" alt="MetaMask Logo">
         </div>
 
-        <div class="fox-visual">
-            <div class="fox-head">
-                <div class="ear left"></div>
-                <div class="ear right"></div>
-            </div>
+        <div class="fox-center">
+            <svg width="200" height="100" viewBox="0 0 200 100">
+                <path d="M20 100 L100 20 L180 100" fill="none" stroke="#e27625" stroke-width="0" />
+                <polygon points="20,100 100,20 60,100" fill="#763d16" />
+                <polygon points="180,100 100,20 140,100" fill="#e27625" />
+            </svg>
         </div>
 
-        <div class="footer-controls">
+        <div class="buttons-bottom">
             <button class="btn btn-white">Créer un nouveau portefeuille</button>
             <button class="btn btn-black">J’ai déjà un portefeuille</button>
         </div>
