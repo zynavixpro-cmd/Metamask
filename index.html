@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MetaMask UI - Full Precision</title>
+    <title>MetaMask UI Clean</title>
     <style>
-        /* استيراد الخط المخصص للأزرار */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
-
-        :root {
-            --bg-color: #fdf5f0; /* لون الخلفية الكريمي الدقيق */
-        }
+        /* استيراد خط نظيف للأزرار */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
 
         * {
             margin: 0;
@@ -19,125 +15,102 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        body {
-            background-color: var(--bg-color);
-            height: 100vh;
-            width: 100vw;
+        body, html {
+            height: 100%;
+            width: 100%;
+            /* اللون الكريمي الدقيق للخلفية من الصورة الأصلية */
+            background-color: #fdf5f0; 
+            font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            font-family: 'Inter', sans-serif;
         }
 
-        .phone-screen {
+        .container {
             width: 100%;
-            max-width: 414px;
-            height: 100%;
+            max-width: 420px; /* مقاس عرض الهاتف المثالي */
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            justify-content: space-between; /* لتوزيع العناصر بين الأعلى والأسفل */
+            padding: 80px 24px 60px 24px;
             position: relative;
-            padding: 0 25px;
         }
 
-        /* تنسيق قسم الصورة (الشعار) */
-        .logo-wrapper {
-            margin-top: 80px; /* مسافة من الأعلى */
+        /* تنسيق الشعار (الصورة التي أرسلتها) */
+        .header-section {
             width: 100%;
             display: flex;
             justify-content: center;
+            align-items: center;
+            flex-grow: 1; /* تجعل الشعار يأخذ المساحة العلوية المتاحة */
         }
 
-        .logo-img {
-            width: 280px; /* التحكم في حجم الشعار */
+        .logo-image {
+            width: 85%; /* حجم الشعار بالنسبة لعرض الشاشة */
+            max-width: 300px;
             height: auto;
             object-fit: contain;
         }
 
-        /* تنسيق الأزرار */
-        .button-wrapper {
+        /* تنسيق قسم الأزرار في الأسفل */
+        .footer-section {
             width: 100%;
-            margin-top: auto;
-            margin-bottom: 150px; /* لترك مساحة للشكل السفلي */
-            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* المسافة بين الأزرار */
+            margin-bottom: 20px;
         }
 
         .btn {
             width: 100%;
-            height: 56px;
-            border-radius: 12px;
+            height: 54px;
+            border-radius: 100px; /* أزرار دائرية الأطراف كما في النسخ الحديثة */
             border: none;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            margin-bottom: 12px;
-            transition: transform 0.1s ease;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
         }
 
+        /* الزر الأبيض */
         .btn-white {
             background-color: #ffffff;
             color: #000000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
+        /* الزر الأسود */
         .btn-black {
             background-color: #000000;
             color: #ffffff;
         }
 
+        /* تأثير عند الضغط */
         .btn:active {
-            transform: scale(0.98);
-        }
-
-        /* الجزء السفلي (أذني الثعلب الهندسية) */
-        .fox-footer {
-            position: absolute;
-            bottom: -5px;
-            width: 100%;
-            height: 120px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            pointer-events: none;
-        }
-
-        .ear-left {
-            width: 0;
-            height: 0;
-            border-left: 140px solid transparent;
-            border-bottom: 170px solid #763d16; /* البني الداكن */
-            transform: rotate(-10deg) translateX(45px);
-        }
-
-        .ear-right {
-            width: 0;
-            height: 0;
-            border-right: 140px solid transparent;
-            border-bottom: 170px solid #e27625; /* البرتقالي */
-            transform: rotate(10deg) translateX(-45px);
+            transform: scale(0.97);
+            opacity: 0.9;
         }
 
     </style>
 </head>
 <body>
 
-    <div class="phone-screen">
-        <div class="logo-wrapper">
-            <img src="https://i.ibb.co/HfY8YZY5/CDDEF7-D4-B6-C6-4-B7-D-BCDE-C1-FCB3191133.jpg" alt="MetaMask Logo" class="logo-img">
+    <div class="container">
+        <div class="header-section">
+            <img src="https://i.ibb.co/HfY8YZY5/CDDEF7-D4-B6-C6-4-B7-D-BCDE-C1-FCB3191133.jpg" 
+                 alt="MetaMask Logo" 
+                 class="logo-image">
         </div>
 
-        <div class="button-wrapper">
+        <div class="footer-section">
             <button class="btn btn-white">Créer un nouveau portefeuille</button>
             <button class="btn btn-black">J’ai déjà un portefeuille</button>
-        </div>
-
-        <div class="fox-footer">
-            <div class="ear-left"></div>
-            <div class="ear-right"></div>
         </div>
     </div>
 
