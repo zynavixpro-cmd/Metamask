@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MetaMask UI - Centered</title>
+    <title>MetaMask UI - Absolute Center</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
+        /* إزالة أي هوامش تلقائية */
         * {
             margin: 0;
             padding: 0;
@@ -14,89 +15,95 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* ضبط الجسم ليكون حاوية كاملة تتوسطها العناصر */
         body, html {
             height: 100%;
             width: 100%;
-            background-color: #fdf5f0; /* لون الخلفية الكريمي */
-            font-family: 'Inter', sans-serif;
+            background-color: #fdf5f0; /* اللون الكريمي المطلوب */
             display: flex;
-            justify-content: center;
-            align-items: center; /* توسيط عمودي كامل */
+            justify-content: center; /* توسيط أفقي */
+            align-items: center;     /* توسيط عمودي (هذا ما سيجعلها في وسط الشاشة) */
+            font-family: 'Inter', sans-serif;
             overflow: hidden;
         }
 
-        .container {
+        /* الحاوية الرئيسية للمحتوى */
+        .main-content {
             width: 100%;
-            max-width: 400px;
+            max-width: 380px; /* عرض مناسب جداً للهواتف */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* توسيط العناصر داخل الحاوية */
+            text-align: center;
             padding: 20px;
-            gap: 40px; /* مسافة بين الصورة والأزرار */
         }
 
-        /* تنسيق الشعار في الوسط */
-        .logo-section {
+        /* تنسيق صورة الشعار */
+        .logo-box {
             width: 100%;
-            display: flex;
-            justify-content: center;
+            margin-bottom: 50px; /* مسافة بين الصورة والأزرار */
         }
 
         .logo-img {
-            width: 85%;
-            max-width: 300px;
+            width: 100%; /* تأخذ عرض الحاوية */
+            max-width: 320px;
             height: auto;
+            display: block;
+            margin: 0 auto;
         }
 
-        /* تنسيق الأزرار */
-        .button-section {
+        /* تنسيق مجموعة الأزرار */
+        .button-group {
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 15px; /* المسافة بين الزرين */
         }
 
         .btn {
             width: 100%;
-            height: 56px;
-            border-radius: 12px;
+            height: 60px;
+            border-radius: 15px;
             border: none;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.1s ease;
+            transition: transform 0.1s ease, background-color 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
+        /* الزر الأبيض */
         .btn-white {
             background-color: #ffffff;
             color: #000000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
+        /* الزر الأسود */
         .btn-black {
             background-color: #000000;
             color: #ffffff;
         }
 
+        /* تأثير النقر لمزيد من الواقعية */
         .btn:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
         }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="logo-section">
+    <div class="main-content">
+        <div class="logo-box">
             <img src="https://i.ibb.co/HfY8YZY5/CDDEF7-D4-B6-C6-4-B7-D-BCDE-C1-FCB3191133.jpg" 
                  alt="MetaMask Logo" 
                  class="logo-img">
         </div>
 
-        <div class="button-section">
+        <div class="button-group">
             <button class="btn btn-white">Créer un nouveau portefeuille</button>
             <button class="btn btn-black">J’ai déjà un portefeuille</button>
         </div>
