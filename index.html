@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MetaMask Pro UI</title>
+    <title>MetaMask Fix Background</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
@@ -11,39 +11,42 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
         }
 
         body, html {
             height: 100%;
             width: 100%;
-            overflow: hidden; /* منع التمرير للحفاظ على شكل التطبيق */
-            background-color: #fdf5f0; /* لون احتياطي مطابق للخلفية */
+            margin: 0;
+            background-color: #fdf5f0; /* لون احتياطي */
             font-family: 'Inter', sans-serif;
+            overflow: hidden;
         }
 
-        /* حاوية الخلفية لضبط مقاس 1991x4090 */
-        .background-overlay {
+        /* الطبقة الأساسية للخلفية */
+        .bg-layer {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            /* استخدمت الرابط المباشر للصورة هنا */
             background-image: url('https://i.ibb.co/ccbpfJRc/IMG-4227.jpg');
-            background-size: cover; /* تجعل الصورة تغطي كامل الشاشة مهما كان نوع الهاتف */
-            background-position: center top; /* التركيز على الجزء العلوي حيث يوجد الشعار */
+            background-size: cover; 
+            background-position: center center;
             background-repeat: no-repeat;
-            z-index: -1;
+            z-index: 1;
         }
 
-        /* حاوية الأزرار في وسط الشاشة */
-        .content-wrapper {
+        /* طبقة الأزرار فوق الخلفية */
+        .ui-layer {
+            position: relative;
+            z-index: 2;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* توسيط عمودي */
-            align-items: center;    /* توسيط أفقي */
-            padding: 0 25px;
+            justify-content: center; /* وضع الأزرار في السنتر */
+            align-items: center;
+            padding: 0 30px;
         }
 
         .button-group {
@@ -52,29 +55,29 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            /* إزاحة بسيطة للأسفل لضمان عدم تغطية كلمة MetaMask */
-            margin-top: 120px; 
+            /* ارفع أو انزل الأزرار من هنا لتناسب فراغ الصورة */
+            margin-top: 150px; 
         }
 
         .btn {
             width: 100%;
-            height: 58px;
+            height: 56px;
             border-radius: 12px;
             border: none;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.1s ease, background-color 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            transition: 0.2s;
         }
 
         .btn-white {
             background-color: #ffffff;
-            color: #000000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         .btn-black {
@@ -83,16 +86,15 @@
         }
 
         .btn:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
         }
-
     </style>
 </head>
 <body>
 
-    <div class="background-overlay"></div>
+    <div class="bg-layer"></div>
 
-    <div class="content-wrapper">
+    <div class="ui-layer">
         <div class="button-group">
             <a href="#" class="btn btn-white">Créer un nouveau portefeuille</a>
             <a href="#" class="btn btn-black">J’ai déjà un portefeuille</a>
