@@ -3,57 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MetaMask Custom Layout</title>
+    <title>MetaMask Final Layout</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
+        /* إعدادات التصفير لضمان التناسق */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
         }
 
         body, html {
             height: 100%;
             width: 100%;
-            background-color: #fdf5f0; /* لون الخلفية الأصلي */
+            background-color: #fdf5f0; /* لون الخلفية الأصلي المطابق للصور */
             font-family: 'Inter', sans-serif;
-            overflow: hidden;
+            overflow: hidden; /* منع التمرير الزائد */
         }
 
-        .container {
+        /* الحاوية الرئيسية التي توزع العناصر */
+        .app-wrapper {
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            height: 100vh; /* ملء كامل ارتفاع الشاشة */
             width: 100%;
-            max-width: 450px;
+            max-width: 480px; /* لضمان مظهر جيد على الشاشات الكبيرة */
             margin: 0 auto;
-            padding: 40px 20px;
-            justify-content: space-between; /* يوزع العناصر: أعلى، وسط، أسفل */
-            align-items: center;
+            padding: 20px;
         }
 
-        /* 1. الاسم في الأعلى */
-        .header-name img {
-            width: 160px;
+        /* 1. الاسم في أعلى الصفحة */
+        .top-brand {
+            flex: 0 1 auto;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .top-brand img {
+            width: 170px; /* حجم صورة الاسم */
             height: auto;
-            margin-top: 10px;
         }
 
-        /* 2. الأزرار في الوسط */
-        .center-buttons {
-            width: 100%;
+        /* 2. الأزرار في منتصف الصفحة تماماً */
+        .mid-controls {
+            flex: 1; /* يأخذ كل المساحة المتاحة لتوسيط الأزرار */
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            flex-grow: 1; /* تأخذ المساحة المتبقية لتتوسط الشاشة */
-            justify-content: center;
+            justify-content: center; /* توسيط عمودي */
+            align-items: center;    /* توسيط أفقي */
+            gap: 14px;
+            width: 100%;
         }
 
         .btn {
             width: 100%;
-            height: 58px;
-            border-radius: 12px;
+            max-width: 380px;
+            height: 60px;
+            border-radius: 14px;
             border: none;
             font-size: 16px;
             font-weight: 600;
@@ -62,12 +70,13 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            transition: transform 0.1s ease;
         }
 
         .btn-white {
             background-color: #ffffff;
             color: #000000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
         }
 
         .btn-black {
@@ -75,28 +84,41 @@
             color: #ffffff;
         }
 
-        /* 3. الثعلب في الأسفل */
-        .footer-fox img {
-            width: 240px; /* حجم الثعلب في الأسفل */
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* 3. الثعلب في أسفل الصفحة */
+        .bottom-fox {
+            flex: 0 1 auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .bottom-fox img {
+            width: 260px; /* حجم الثعلب في الأسفل */
             height: auto;
-            margin-bottom: -40px; /* لجعله يظهر وكأنه يخرج من أسفل الشاشة */
+            /* تجعل الثعلب يلمس حافة الشاشة السفلية */
+            margin-bottom: -10px; 
         }
 
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header-name">
+    <div class="app-wrapper">
+        <div class="top-brand">
             <img src="https://i.ibb.co/TxBwJwkR/E7961-A44-6-F80-4-C61-ABB2-1114843-BA52-A.png" alt="MetaMask Name">
         </div>
 
-        <div class="center-buttons">
+        <div class="mid-controls">
             <a href="#" class="btn btn-white">Créer un nouveau portefeuille</a>
             <a href="#" class="btn btn-black">J’ai déjà un portefeuille</a>
         </div>
 
-        <div class="footer-fox">
+        <div class="bottom-fox">
             <img src="https://i.ibb.co/MDxwTKnF/00-D9-CEEE-C3-F4-489-F-BF98-84-AAC47-A6-ED5.png" alt="MetaMask Fox">
         </div>
     </div>
