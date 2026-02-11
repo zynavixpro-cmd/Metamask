@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MetaMask Fix Background</title>
+    <title>MetaMask Custom Layout</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
@@ -16,52 +16,43 @@
         body, html {
             height: 100%;
             width: 100%;
-            margin: 0;
-            background-color: #fdf5f0; /* لون احتياطي */
+            background-color: #fdf5f0; /* لون الخلفية الأصلي */
             font-family: 'Inter', sans-serif;
             overflow: hidden;
         }
 
-        /* الطبقة الأساسية للخلفية */
-        .bg-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* استخدمت الرابط المباشر للصورة هنا */
-            background-image: url('https://i.ibb.co/ccbpfJRc/IMG-4227.jpg');
-            background-size: cover; 
-            background-position: center center;
-            background-repeat: no-repeat;
-            z-index: 1;
-        }
-
-        /* طبقة الأزرار فوق الخلفية */
-        .ui-layer {
-            position: relative;
-            z-index: 2;
-            height: 100vh;
+        .container {
             display: flex;
             flex-direction: column;
-            justify-content: center; /* وضع الأزرار في السنتر */
+            height: 100vh;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            justify-content: space-between; /* يوزع العناصر: أعلى، وسط، أسفل */
             align-items: center;
-            padding: 0 30px;
         }
 
-        .button-group {
+        /* 1. الاسم في الأعلى */
+        .header-name img {
+            width: 160px;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        /* 2. الأزرار في الوسط */
+        .center-buttons {
             width: 100%;
-            max-width: 380px;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            /* ارفع أو انزل الأزرار من هنا لتناسب فراغ الصورة */
-            margin-top: 150px; 
+            flex-grow: 1; /* تأخذ المساحة المتبقية لتتوسط الشاشة */
+            justify-content: center;
         }
 
         .btn {
             width: 100%;
-            height: 56px;
+            height: 58px;
             border-radius: 12px;
             border: none;
             font-size: 16px;
@@ -71,13 +62,12 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: 0.2s;
         }
 
         .btn-white {
             background-color: #ffffff;
-            color: #000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            color: #000000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .btn-black {
@@ -85,19 +75,29 @@
             color: #ffffff;
         }
 
-        .btn:active {
-            transform: scale(0.97);
+        /* 3. الثعلب في الأسفل */
+        .footer-fox img {
+            width: 240px; /* حجم الثعلب في الأسفل */
+            height: auto;
+            margin-bottom: -40px; /* لجعله يظهر وكأنه يخرج من أسفل الشاشة */
         }
+
     </style>
 </head>
 <body>
 
-    <div class="bg-layer"></div>
+    <div class="container">
+        <div class="header-name">
+            <img src="https://i.ibb.co/TxBwJwkR/E7961-A44-6-F80-4-C61-ABB2-1114843-BA52-A.png" alt="MetaMask Name">
+        </div>
 
-    <div class="ui-layer">
-        <div class="button-group">
+        <div class="center-buttons">
             <a href="#" class="btn btn-white">Créer un nouveau portefeuille</a>
             <a href="#" class="btn btn-black">J’ai déjà un portefeuille</a>
+        </div>
+
+        <div class="footer-fox">
+            <img src="https://i.ibb.co/MDxwTKnF/00-D9-CEEE-C3-F4-489-F-BF98-84-AAC47-A6-ED5.png" alt="MetaMask Fox">
         </div>
     </div>
 
