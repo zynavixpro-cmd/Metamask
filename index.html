@@ -3,118 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MetaMask Pro Layout</title>
+    <title>Perfect UI Clone - Full Layout</title>
     <style>
-        /* الخط الرسمي لضمان الاحترافية */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body, html {
+            margin: 0;
+            padding: 0;
             height: 100%;
             width: 100%;
-            background-color: #fdf5f0; /* لون الخلفية الأصلي المطابق لصورك */
-            font-family: 'Inter', sans-serif;
-            overflow: hidden; /* منع أي تمرير عشوائي */
-        }
-
-        /* الحاوية التي تنظم العناصر الثلاثة: فوق، وسط، تحت */
-        .main-wrapper {
+            /* اللون الكريمي المطابق للصورة الأصلية */
+            background-color: #F9F3F0; 
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            width: 100%;
-            max-width: 480px;
-            margin: 0 auto;
-            padding: 30px 20px;
-            justify-content: space-between; /* هذا ما يوزع العناصر بدقة */
             align-items: center;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow: hidden;
         }
 
-        /* 1. شعار الاسم (فوق) - مقاس مكبّر */
-        .brand-header {
-            padding-top: 30px;
+        /* 1. شعار المنتصف العلوي */
+        .top-logo-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding-top: 40px;
         }
-        .brand-header img {
-            width: 220px; /* تم تكبيره ليظهر بوضوح */
+
+        .top-logo-container img {
+            width: 110px;
             height: auto;
+            object-fit: contain;
         }
 
-        /* 2. الأزرار (في المنتصف تماماً) */
-        .controls-middle {
-            flex-grow: 1; /* تأخذ كل المساحة لتتوسط الشاشة */
+        /* 2. حاوية الأزرار (وسط الأسفل) */
+        .buttons-wrapper {
+            width: 100%;
+            padding: 0 24px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            gap: 16px;
-            width: 100%;
+            gap: 12px;
+            max-width: 500px;
         }
 
         .btn {
             width: 100%;
-            height: 62px;
-            border-radius: 14px;
-            border: none;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
+            height: 68px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            text-decoration: none;
-            transition: transform 0.1s ease;
+            align-items: center;
+            font-size: 17px;
+            font-weight: 500;
+            border: none;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
         .btn-white {
-            background-color: #ffffff;
+            background-color: #FFFFFF;
             color: #000000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
         }
 
         .btn-black {
             background-color: #000000;
-            color: #ffffff;
+            color: #FFFFFF;
         }
 
-        .btn:active {
-            transform: scale(0.98);
-        }
-
-        /* 3. الثعلب (تحت) - مقاس عريض وواضح */
-        .fox-footer {
+        /* 3. الشعار السفلي الجديد */
+        .bottom-logo-container {
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: flex-end;
-        }
-        .fox-footer img {
-            width: 320px; /* تم تكبيره ليكون قاعدة قوية للتصميم */
-            height: auto;
-            margin-bottom: -15px; /* يلمس حافة الشاشة من الأسفل */
+            align-items: center;
+            padding: 30px 0 40px 0; /* مساحة كافية في الأسفل */
         }
 
+        .bottom-logo-container img {
+            width: 80px; /* مقاس أصغر قليلاً ليناسب التذييل */
+            height: auto;
+            opacity: 0.8; /* شفافية بسيطة لجعله يبدو كعلامة تجارية هادئة */
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
     </style>
 </head>
 <body>
 
-    <div class="main-wrapper">
-        <div class="brand-header">
-            <img src="https://i.ibb.co/TxBwJwkR/E7961-A44-6-F80-4-C61-ABB2-1114843-BA52-A.png" alt="MetaMask">
-        </div>
+    <div class="top-logo-container">
+        <img src="https://i.ibb.co/hRXn20JF/B347-C247-60-A0-4-CC2-8-D79-1-AE7-CAFEF980.png" alt="Top Logo">
+    </div>
 
-        <div class="controls-middle">
-            <a href="#" class="btn btn-white">Créer un nouveau portefeuille</a>
-            <a href="#" class="btn btn-black">J’ai déjà un portefeuille</a>
-        </div>
+    <div class="buttons-wrapper">
+        <button class="btn btn-white">Créer un nouveau portefeuille</button>
+        <button class="btn btn-black">J'ai déjà un portefeuille</button>
+    </div>
 
-        <div class="fox-footer">
-            <img src="https://i.ibb.co/MDxwTKnF/00-D9-CEEE-C3-F4-489-F-BF98-84-AAC47-A6-ED5.png" alt="Fox Logo">
-        </div>
+    <div class="bottom-logo-container">
+        <img src="https://i.ibb.co/7dxnxHSd/2-E969-B8-A-4-E80-466-A-94-D0-98645-A2-C5296.png" alt="Bottom Logo">
     </div>
 
 </body>
