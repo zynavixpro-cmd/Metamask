@@ -3,73 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MetaMask Optimized Layout</title>
+    <title>MetaMask Pro Layout</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body, html {
-            height: 100%;
-            background-color: #fdf5f0; /* اللون الكريمي الأصلي */
-            font-family: sans-serif;
-            overflow: hidden;
+        /* الخط الرسمي لضمان الاحترافية */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
+        body, html {
+            height: 100%;
+            width: 100%;
+            background-color: #fdf5f0; /* لون الخلفية الأصلي المطابق لصورك */
+            font-family: 'Inter', sans-serif;
+            overflow: hidden; /* منع أي تمرير عشوائي */
+        }
+
+        /* الحاوية التي تنظم العناصر الثلاثة: فوق، وسط، تحت */
+        .main-wrapper {
             display: flex;
             flex-direction: column;
             height: 100vh;
-            justify-content: space-between;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            justify-content: space-between; /* هذا ما يوزع العناصر بدقة */
             align-items: center;
-            padding: 40px 20px;
         }
 
-        /* ضبط مقاس الاسم في الأعلى ليكون واضحاً وغير صغير */
-        .brand-name img {
-            width: 200px; /* المقاس المثالي للاسم */
+        /* 1. شعار الاسم (فوق) - مقاس مكبّر */
+        .brand-header {
+            padding-top: 30px;
+        }
+        .brand-header img {
+            width: 220px; /* تم تكبيره ليظهر بوضوح */
             height: auto;
         }
 
-        /* وضع الأزرار في السنتر (الوسط) */
-        .mid-section {
-            width: 100%;
-            max-width: 400px;
+        /* 2. الأزرار (في المنتصف تماماً) */
+        .controls-middle {
+            flex-grow: 1; /* تأخذ كل المساحة لتتوسط الشاشة */
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            flex-grow: 1;
             justify-content: center;
+            gap: 16px;
+            width: 100%;
         }
 
         .btn {
             width: 100%;
-            height: 60px;
-            border-radius: 15px;
+            height: 62px;
+            border-radius: 14px;
             border: none;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.1s ease;
         }
-        .btn-white { background-color: #fff; color: #000; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .btn-black { background-color: #000; color: #fff; }
 
-        /* ضبط مقاس الثعلب السفلي ليكون كبيراً وواضحاً */
-        .fox-footer img {
-            width: 280px; /* تكبير الثعلب ليتناسب مع النتيجة المطلوبة */
-            height: auto;
-            margin-bottom: -20px; /* لجعله يخرج من حافة الشاشة */
+        .btn-white {
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         }
+
+        .btn-black {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* 3. الثعلب (تحت) - مقاس عريض وواضح */
+        .fox-footer {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .fox-footer img {
+            width: 320px; /* تم تكبيره ليكون قاعدة قوية للتصميم */
+            height: auto;
+            margin-bottom: -15px; /* يلمس حافة الشاشة من الأسفل */
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="brand-name">
+    <div class="main-wrapper">
+        <div class="brand-header">
             <img src="https://i.ibb.co/TxBwJwkR/E7961-A44-6-F80-4-C61-ABB2-1114843-BA52-A.png" alt="MetaMask">
         </div>
 
-        <div class="mid-section">
-            <button class="btn btn-white">Créer un nouveau portefeuille</button>
-            <button class="btn btn-black">J’ai déjà un portefeuille</button>
+        <div class="controls-middle">
+            <a href="#" class="btn btn-white">Créer un nouveau portefeuille</a>
+            <a href="#" class="btn btn-black">J’ai déjà un portefeuille</a>
         </div>
 
         <div class="fox-footer">
